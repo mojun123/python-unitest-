@@ -1,0 +1,9 @@
+*/__pycache__/*
+*/*/__pycache__/*
+log/
+result/
+screenshot/
+tmp/
+.scannerwork/
+conf/login.conf
+audit/
