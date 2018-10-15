@@ -1,0 +1,62 @@
+[
+    {
+        "level": "SEVERE",
+        "message": "https://qa.clatterans.com/js/main.js?v=20180810g 6:5 Uncaught SyntaxError: Unexpected token =",
+        "source": "javascript",
+        "timestamp": 1537247233694
+    },
+    {
+        "level": "SEVERE",
+        "message": "https://qa.clatterans.com/js/knockout.js?v=20180810g - Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "source": "network",
+        "timestamp": 1537247233972
+    },
+    {
+        "level": "SEVERE",
+        "message": "https://qa.clatterans.com/js/require.js 7:218 Uncaught Error: Script error for: knockout\nhttp://requirejs.org/docs/errors.html#scripterror",
+        "source": "javascript",
+        "timestamp": 1537247233973
+    },
+    {
+        "level": "SEVERE",
+        "message": "https://qa.clatterans.com/js/siteLib.js?v=20180810g - Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "source": "network",
+        "timestamp": 1537247234024
+    },
+    {
+        "level": "SEVERE",
+        "message": "https://qa.clatterans.com/js/require.js 7:218 Uncaught Error: Script error for: siteLib\nhttp://requirejs.org/docs/errors.html#scripterror",
+        "source": "javascript",
+        "timestamp": 1537247234025
+    },
+    {
+        "level": "SEVERE",
+        "message": "https://qa.clatterans.com/js/jquery.js?v=20180810g - Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "source": "network",
+        "timestamp": 1537247234075
+    },
+    {
+        "level": "SEVERE",
+        "message": "https://qa.clatterans.com/js/require.js 7:218 Uncaught Error: Script error for: jquery\nhttp://requirejs.org/docs/errors.html#scripterror",
+        "source": "javascript",
+        "timestamp": 1537247234076
+    },
+    {
+        "level": "SEVERE",
+        "message": "https://qa.clatterans.com/js/jqueryUICustom.js?v=20180810g - Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "source": "network",
+        "timestamp": 1537247234198
+    },
+    {
+        "level": "SEVERE",
+        "message": "https://qa.clatterans.com/js/require.js 7:218 Uncaught Error: Script error for: jqueryUICustom\nhttp://requirejs.org/docs/errors.html#scripterror",
+        "source": "javascript",
+        "timestamp": 1537247234199
+    },
+    {
+        "level": "SEVERE",
+        "message": "https://www.google.com/ads/ga-audiences?v=1&aip=1&t=sr&_r=4&tid=UA-108822947-1&cid=1059892012.1537247234&jid=620426436&_v=j69&z=1317941494 - Failed to load resource: net::ERR_CONNECTION_TIMED_OUT",
+        "source": "network",
+        "timestamp": 1537247256098
+    }
+]

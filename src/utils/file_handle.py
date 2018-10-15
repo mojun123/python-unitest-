@@ -22,6 +22,7 @@ def pretty_write(py_obj, file_name):
 	with codecs.open(file_name,'w','utf-8') as fjson:
 		fjson.write(write_contents)
 
+
 def file_content_to_py_object(file_name):
 
 	import codecs

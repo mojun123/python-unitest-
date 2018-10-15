@@ -14,11 +14,11 @@ def set_driver_path():
 	cwd = os.getcwd()
 	dir_name = os.path.dirname(cwd)
 	platform = get_platform()
-	print(11111, platform)
+	# print(11111, platform)
 	if 0 == platform:
-		return os.path.join(dir_name,"lib","browser-driver","chrome", "chromedriver.exe")
+		return os.path.join(dir_name,"lib","browser-driver","chrome", "chromedriver.exe"), platform
 	elif 1 == platform:
-		return os.path.join(dir_name,"lib","browser-driver","chrome", "chromedriver")
+		return os.path.join(dir_name,"lib","browser-driver","chrome", "chromedriver"), platform
 
 
 

@@ -11,7 +11,11 @@ from utils.file_handle import *
 from utils.user_infos import Users
 from utils.commons import *
 from testcase.HomePage import Home
-
+from testcase.Login import Login
+from testcase.ProductDetails import ProductDetails
+from testcase.ViewCart import ViewCart
+from testcase.CheckOut import Checkout
+from testcase.SelectPayment import PyamentMethod
 from pprint import pprint
 from proxy.requestsproxy import RandomProxy
 
@@ -115,8 +119,8 @@ Got some js error, logs as follow:
 
 	def setUp(self):
 		
-		self.url = "https://www.clatterans.com/"
-		self.host = "www.clatterans.com"
+		self.url = "https://www.nighslee.com/"
+		self.host = "www.nighslee.com"
 		self.title = ""
 		self.set_proxies_disable(self.host)
 		self.check_proxy()
@@ -128,6 +132,8 @@ Got some js error, logs as follow:
 		chromeOptions.add_argument('--proxy-server=%s' % self.proxy)
 		chromeOptions.add_argument("--headless") # Runs Chrome in headless mode.
 		chromeOptions.add_argument('--no-sandbox') # Bypass OS security model
+		prefs = {"profile.managed_default_content_settings.images":2}
+		chromeOptions.add_experimental_option("prefs", prefs)
 		platform = get_platform()
 		if 0 == platform:
 			chromeOptions.add_argument('--disable-gpu')  # applicable to windows os only
@@ -161,32 +167,85 @@ Got some js error, logs as follow:
 
 	def home_page(self):
 
-		title = "Refrigerator Water Filters, Water Filter Online | Clatterans.com" 
+		title = "Best Memory Foam Mattress & Pillow For Sale Under $500 | Nighslee" 
 		home_page = Home(self.driver, self.url, title)
 		return home_page
 
-	def test_home_page(self):
+	def home_page_click_signin_href(self):
 		home_page = self.home_page()
-		b_open = home_page.open()
-		time.sleep(1)
-		nowTime = time.strftime("%Y%m%d.%H.%M.%S")
-		file_name = os.path.join('..', 'screenshot', '%s' % self.test_case_name, 'open_home_%s.png' % nowTime)
-		home_page.save_png(file_name)
-		home_page.get_performance_logs()
-		self.check_js_error(home_page, self.url)
-		self.check_response_status(home_page, self.url, 200)
-		title = self.driver.title
-		home_page.assert_element_attribute(title, home_page.page_title)
-		element_slides = home_page.check_slider()
-		home_page.assertNotNone_element_attribute(element_slides)
-		element_signin = home_page.check_sign()
-		home_page.assertNotNone_element_attribute(element_signin)
-		element_viewcart = home_page.check_viewcart_button()
-		home_page.assertNotNone_element_attribute(element_viewcart)
-		element_chat_now = home_page.check_chat_now_button()
-		home_page.assertNotNone_element_attribute(element_chat_now)
-		element_product_list = home_page.check_products()
-		home_page.assertNotNone_element_attribute(element_product_list)
+		home_page.open()
+
+	def check_home_menu(self, menu_name, reverse=True):
+		home_page = self.home_page()
+		home_page.open()
+		# print('[befor]reverse: %s' %reverse)
+		element, e_menu = home_page._dispatch(menu_name, reverse)
+		try:
+			print("befor: ", self.driver.current_url)
+			element.click()
+			msg = "click {0} cannot jump to {0} page. current_url: ".format(menu_name) + self.driver.current_url
+			if "home" not in menu_name:
+				assert menu_name in self.driver.current_url, msg
+				reverse = not reverse
+			else:
+				reverse = False
+			# print('[after]reverse: %s' %reverse)
+			element, _ = home_page._dispatch(menu_name, reverse)
+
+			return home_page
+
+		except Exception as e:
+			print("check_home_menu except: ", home_page.get_innerHTML(e_menu))
+			home_page.get_performance_logs()
+			self.check_js_error(home_page, self.url)
+			nowTime = time.strftime("%Y%m%d.%H.%M.%S")
+
+			file_name = os.path.join('..', 'screenshot', '%s' % self.test_case_name, 'cannot-click-%s-%s.png' % (menu_name, nowTime))
+			home_page.save_png(file_name)
+			print("[error] cannot click " + menu_name)
+
+			raise e
+
+	def test_home(self):
+		menu_name = "home"
+		reverse = False
+
+		home_page = self.check_home_menu(menu_name, reverse)
+		home_page.check_all_menu(menu_name)
+		# home_page.check_menu_MATTRESS()
+		# home_page.check_menu_REVIEWS()
+		# home_page.check_menu_FAQS()
+		# home_page.check_menu_CONTACT()
+
+	def test_home_mattress(self):
+		menu_name = "mattress"
+		reverse = True
+
+		home_page = self.check_home_menu(menu_name, reverse)
+		home_page.check_all_menu(menu_name)
+
+
+	def test_home_reviews(self):
+		menu_name = "reviews"
+		reverse = True
+
+		home_page = self.check_home_menu(menu_name, reverse)
+		# home_page.check_menu_REVIEWS()
+		home_page.check_all_menu(menu_name)
+
+	def test_home_faqs(self):
+		menu_name = "faqs"
+		reverse = True
+
+		home_page = self.check_home_menu(menu_name, reverse)
+		home_page.check_all_menu(menu_name)
+
+	def test_home_contact(self):
+		menu_name = "contact"
+		reverse = True
+
+		home_page = self.check_home_menu(menu_name, reverse)
+		home_page.check_all_menu(menu_name)
 
 
 	def tearDown(self):
@@ -217,20 +276,51 @@ def run(file_name):
 				order-confirm -> \
 				select-payment-method -> \
 				payment-page',
-			retry_total_numbers=2
+			# retry_total_numbers=2
 			)
 
 	suite = unittest.TestSuite()
 	# suite.addTest(unittest.makeSuite(CaseHome))
-	suite.addTest(CaseHome('test_home_page'))
-
+	suite.addTest(CaseHome('test_home'))
+	suite.addTest(CaseHome('test_home_mattress'))
+	suite.addTest(CaseHome('test_home_reviews'))
+	suite.addTest(CaseHome('test_home_faqs'))
+	suite.addTest(CaseHome('test_home_contact'))
+	
+	
 	print("start : %s" % time.ctime())
 	run_result=runner.run(suite)
 	fp.close()
 	print("End : %s" % time.ctime())
 	return run_result
 
+def admin_cancel_order(orderid):
+	from admin_main import runmain 
+	file = os.path.join(BASE_DIR, 'conf', 'login.conf')
+	runmain(orderid, file) 
 
+def report(result):
+	from libs._requests import RequestTemplete
+
+	_req = RequestTemplete()
+	url = 'https://oa.jiebeili.cn/websiteSystemNotify'
+	_req._set_url(url)
+	if result.failure_count or result.error_count:
+		count = str(result.success_count + result.failure_count + result.error_count)
+		success = str(result.success_count)
+		fail = str(result.failure_count)
+		error = str(result.error_count)
+		failures = deduplicate_list(result.failures)
+		errors = deduplicate_list(result.errors)
+		params = {
+			'rev': 'youngy',
+			'title': "total: %s, pass: %s, fail: %s, error: %s" % (count, success, fail, error),
+			'content': "F: %s\nE: %s" %(failures, errors)
+
+		}
+		_req.set_params(params)
+		_req.method = "post"
+		_req._req()
 
 if __name__ == "__main__":
 	file_name = "shopping_"
@@ -242,4 +332,8 @@ if __name__ == "__main__":
 	# 	result = run(file_name)
 	# 	report(result)
 	result = run(file_name)
-
+	report(result)
+	
+	orderid = G_SHOP['orderid']
+	if orderid:
+		admin_cancel_order(orderid)

@@ -1,0 +1,82 @@
+[
+    {
+        "level": "WARNING",
+        "message": "Ignoring unrecognized log type: server\n",
+        "timestamp": 1537247230130
+    },
+    {
+        "level": "INFO",
+        "message": "Populating Preferences file: {\n   \"alternate_error_pages\": {\n      \"enabled\": false\n   },\n   \"autofill\": {\n      \"enabled\": false\n   },\n   \"browser\": {\n      \"check_default_browser\": false\n   },\n   \"distribution\": {\n      \"import_bookmarks\": false,\n      \"import_history\": false,\n      \"import_search_engine\": false,\n      \"make_chrome_default_for_user\": false,\n      \"skip_first_run_ui\": true\n   },\n   \"dns_prefetching\": {\n      \"enabled\": false\n   },\n   \"profile\": {\n      \"content_settings\": {\n         \"pattern_pairs\": {\n            \"https://*,*\": {\n               \"media-stream\": {\n                  \"audio\": \"Default\",\n                  \"video\": \"Default\"\n               }\n            }\n         }\n      },\n      \"default_content_setting_values\": {\n         \"geolocation\": 1\n      },\n      \"default_content_settings\": {\n         \"geolocation\": 1,\n         \"mouselock\": 1,\n         \"notifications\": 1,\n         \"popups\": 1,\n         \"ppapi-broker\": 1\n      },\n      \"password_manager_enabled\": false\n   },\n   \"safebrowsing\": {\n      \"enabled\": false\n   },\n   \"search\": {\n      \"suggest_enabled\": false\n   },\n   \"translate\": {\n      \"enabled\": false\n   }\n}\n",
+        "timestamp": 1537247230134
+    },
+    {
+        "level": "INFO",
+        "message": "Populating Local State file: {\n   \"background_mode\": {\n      \"enabled\": false\n   },\n   \"ssl\": {\n      \"rev_checking\": {\n         \"enabled\": false\n      }\n   }\n}\n",
+        "timestamp": 1537247230135
+    },
+    {
+        "level": "INFO",
+        "message": "Launching chrome: \"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe\" --disable-background-networking --disable-client-side-phishing-detection --disable-default-apps --disable-hang-monitor --disable-popup-blocking --disable-prompt-on-repost --disable-sync --disable-web-resources --enable-automation --enable-logging --force-fieldtrials=SiteIsolationExtensions/Control --ignore-certificate-errors --load-extension=\"C:\\Users\\IT\\AppData\\Local\\Temp\\scoped_dir14040_20276\\internal\" --log-level=0 --metrics-recording-only --no-first-run --password-store=basic --remote-debugging-port=0 --test-type=webdriver --use-mock-keychain --user-data-dir=\"C:\\Users\\IT\\AppData\\Local\\Temp\\scoped_dir14040_17703\" data:,\n",
+        "timestamp": 1537247230142
+    },
+    {
+        "level": "INFO",
+        "message": "RESPONSE InitSession {\n   \"acceptInsecureCerts\": false,\n   \"acceptSslCerts\": false,\n   \"applicationCacheEnabled\": false,\n   \"browserConnectionEnabled\": false,\n   \"browserName\": \"chrome\",\n   \"chrome\": {\n      \"chromedriverVersion\": \"2.40.565498 (ea082db3280dd6843ebfb08a625e3eb905c4f5ab)\",\n      \"userDataDir\": \"C:\\\\Users\\\\IT\\\\AppData\\\\Local\\\\Temp\\\\scoped_dir14040_17703\"\n   },\n   \"cssSelectorsEnabled\": true,\n   \"databaseEnabled\": false,\n   \"handlesAlerts\": true,\n   \"hasTouchScreen\": false,\n   \"javascriptEnabled\": true,\n   \"locationContextEnabled\": true,\n   \"mobileEmulationEnabled\": false,\n   \"nativeEvents\": true,\n   \"networkConnectionEnabled\": false,\n   \"pageLoadStrategy\": \"normal\",\n   \"platform\": \"Windows NT\",\n   \"rotatable\": false,\n   \"setWindowRect\": true,\n   \"~~~\": \"...\"\n}\n",
+        "timestamp": 1537247232274
+    },
+    {
+        "level": "INFO",
+        "message": "COMMAND Navigate {\n   \"sessionId\": \"82dc3aef230504ef41ada303665abbf8\",\n   \"url\": \"https://qa.clatterans.com/\"\n}\n",
+        "timestamp": 1537247232275
+    },
+    {
+        "level": "INFO",
+        "message": "Waiting for pending navigations...\n",
+        "timestamp": 1537247232275
+    },
+    {
+        "level": "INFO",
+        "message": "Done waiting for pending navigations. Status: ok\n",
+        "timestamp": 1537247232289
+    },
+    {
+        "level": "INFO",
+        "message": "Waiting for pending navigations...\n",
+        "timestamp": 1537247233276
+    },
+    {
+        "level": "INFO",
+        "message": "Done waiting for pending navigations. Status: ok\n",
+        "timestamp": 1537247256139
+    },
+    {
+        "level": "INFO",
+        "message": "RESPONSE Navigate\n",
+        "timestamp": 1537247256139
+    },
+    {
+        "level": "INFO",
+        "message": "COMMAND GetLog {\n   \"sessionId\": \"82dc3aef230504ef41ada303665abbf8\",\n   \"type\": \"browser\"\n}\n",
+        "timestamp": 1537247256141
+    },
+    {
+        "level": "INFO",
+        "message": "RESPONSE GetLog [ {\n   \"level\": \"SEVERE\",\n   \"message\": \"https://qa.clatterans.com/js/main.js?v=20180810g 6:5 Uncaught SyntaxError: Unexpected token =\",\n   \"source\": \"javascript\",\n   \"timestamp\": 1537247233694.0\n}, {\n   \"level\": \"SEVERE\",\n   \"message\": \"https://qa.clatterans.com/js/knockout.js?v=20180810g - Failed to load resource: the server responded with a status of 404 (Not Found)\",\n   \"source\": \"network\",\n   \"timestamp\": 1537247233972.0\n}, {\n   \"level\": \"SEVERE\",\n   \"message\": \"https://qa.clatterans.com/js/require.js 7:218 Uncaught Error: Script error for: knockout\\nhttp://requirejs.org/docs/errors.html#scripterror\",\n   \"source\": \"javascript\",\n   \"timestamp\": 1537247233973.0\n}, {\n   \"level\": \"SEVERE\",\n   \"message\": \"https://qa.clatterans.com/js/siteLib.js?v=20180810g - Failed to load resource: the server responded with a status of 404 (Not Found)\",\n   \"source\": \"network\",\n   \"timestamp\": 1537247234024.0\n}, {\n   \"level\": \"SEVERE\",\n   \"message\": \"https://qa.clatterans.com/js/require.js 7:218 Uncaught Error: Script error for: siteLib\\nhttp://requirejs.org/docs/errors.html#scripterror\",\n   \"source\": \"javascript\",\n   \"timestamp\": 1537247234025.0\n}, {\n   \"level\": \"SEVERE\",\n   \"message\": \"https://qa.clatterans.com/js/jquery.js?v=20180810g - Failed to load resource: the server responded with a status of 404 (Not Found)\",\n   \"source\": \"network\",\n   \"timestamp\": 1537247234075.0\n}, {\n   \"level\": \"SEVERE\",\n   \"message\": \"https://qa.clatterans.com/js/require.js 7:218 Uncaught Error: Script error for: jquery\\nhttp://requirejs.org/docs/errors.html#scripterror\",\n   \"source\": \"javascript\",\n   \"timestamp\": 1537247234076.0\n}, {\n   \"level\": \"SEVERE\",\n   \"message\": \"https://qa.clatterans.com/js/jqueryUICustom.js?v=20180810g - Failed to load resource: the server responded with a status of 404 (Not Found)\",\n   \"source\": \"network\",\n   \"timestamp\": 1537247234198.0\n}, {\n   \"level\": \"SEVERE\",\n   \"message\": \"https://qa.clatterans.com/js/require.js 7:218 Uncaught Error: Script error for: jqueryUICustom\\nhttp://requirejs.org/docs/errors.html#scripterror\",\n   \"source\": \"javascript\",\n   \"timestamp\": 1537247234199.0\n}, {\n   \"level\": \"SEVERE\",\n   \"message\": \"https://www.google.com/ads/ga-audiences?v=1&aip=1&t=sr&_r=4&tid=UA-108822947-1&cid=1059892012.1537247234&jid=620426436&_v=j69&z=1317941494 - Failed to load resource: net::ERR_CONNECTION_TIMED_OUT\",\n   \"source\": \"network\",\n   \"timestamp\": 1537247256098.0\n} ]\n",
+        "timestamp": 1537247256143
+    },
+    {
+        "level": "INFO",
+        "message": "COMMAND GetLog {\n   \"sessionId\": \"82dc3aef230504ef41ada303665abbf8\",\n   \"type\": \"performance\"\n}\n",
+        "timestamp": 1537247256146
+    },
+    {
+        "level": "INFO",
+        "message": "RESPONSE GetLog [ {\n   \"level\": \"INFO\",\n   \"message\": \"{\\\"message\\\":{\\\"method\\\":\\\"Page.frameAttached\\\",\\\"params\\\":{\\\"frameId\\\":\\\"3C7AB172EB9E2362647DB8BAE63E4E11\\\",\\\"parentFrameId\\\":\\\"427B23877D32F8ABBE11D55793D40C52\\\",\\\"stack\\\":{\\\"callFrames\\\":[{\\\"columnNumber\\\":125,\\\"funct...\",\n   \"timestamp\": 1537247232284.0\n}, {\n   \"level\": \"INFO\",\n   \"message\": \"{\\\"message\\\":{\\\"method\\\":\\\"Page.frameStartedLoading\\\",\\\"params\\\":{\\\"frameId\\\":\\\"3C7AB172EB9E2362647DB8BAE63E4E11\\\"}},\\\"webview\\\":\\\"427B23877D32F8ABBE11D55793D40C52\\\"}\",\n   \"timestamp\": 1537247232289.0\n}, {\n   \"level\": \"INFO\",\n   \"message\": \"{\\\"message\\\":{\\\"method\\\":\\\"Page.frameNavigated\\\",\\\"params\\\":{\\\"frame\\\":{\\\"id\\\":\\\"3C7AB172EB9E2362647DB8BAE63E4E11\\\",\\\"loaderId\\\":\\\"27A9942B8C6694617001E1842BA212B4\\\",\\\"mimeType\\\":\\\"text/html\\\",\\\"name\\\":\\\"chromedriver dummy...\",\n   \"timestamp\": 1537247232289.0\n}, {\n   \"level\": \"INFO\",\n   \"message\": \"{\\\"message\\\":{\\\"method\\\":\\\"Page.frameStoppedLoading\\\",\\\"params\\\":{\\\"frameId\\\":\\\"3C7AB172EB9E2362647DB8BAE63E4E11\\\"}},\\\"webview\\\":\\\"427B23877D32F8ABBE11D55793D40C52\\\"}\",\n   \"timestamp\": 1537247232289.0\n}, {\n   \"level\": \"INFO\",\n   \"message\": \"{\\\"message\\\":{\\\"method\\\":\\\"Network.requestWillBeSent\\\",\\\"params\\\":{\\\"documentURL\\\":\\\"https://qa.clatterans.com/\\\",\\\"frameId\\\":\\\"427B23877D32F8ABBE11D55793D40C52\\\",\\\"hasUserGesture\\\":false,\\\"initiator\\\":{\\\"type\\\":\\\"other\\\"...\",\n   \"timestamp\": 1537247232313.0\n}, {\n   \"level\": \"INFO\",\n   \"message\": \"{\\\"message\\\":{\\\"method\\\":\\\"Page.frameDetached\\\",\\\"params\\\":{\\\"frameId\\\":\\\"3C7AB172EB9E2362647DB8BAE63E4E11\\\"}},\\\"webview\\\":\\\"427B23877D32F8ABBE11D55793D40C52\\\"}\",\n   \"timestamp\": 1537247232313.0\n}, {\n   \"level\": \"INFO\",\n   \"message\": \"{\\\"message\\\":{\\\"method\\\":\\\"Network.responseReceived\\\",\\\"params\\\":{\\\"frameId\\\":\\\"427B23877D32F8ABBE11D55793D40C52\\\",\\\"loaderId\\\":\\\"784F0F39E49D1F08B60DBC545DB620AE\\\",\\\"requestId\\\":\\\"784F0F39E49D1F08B60DBC545DB620AE\\\",\\\"...\",\n   \"timestamp\": 1537247233250.0\n}, {\n   \"level\": \"INFO\",\n   \"message\": \"{\\\"message\\\":{\\\"method\\\":\\\"Page.frameStartedLoading\\\",\\\"params\\\":{\\\"frameId\\\":\\\"427B23877D32F8ABBE11D55793D40C52\\\"}},\\\"webview\\\":\\\"427B23877D32F8ABBE11D55793D40C52\\\"}\",\n   \"timestamp\": 1537247233251.0\n}, {\n   \"level\": \"INFO\",\n   \"message\": \"{\\\"message\\\":{\\\"method\\\":\\\"Network.dataReceived\\\",\\\"params\\\":{\\\"dataLength\\\":45000,\\\"encodedDataLength\\\":3702,\\\"requestId\\\":\\\"784F0F39E49D1F08B60DBC545DB620AE\\\",\\\"timestamp\\\":99651.437154}},\\\"webview\\\":\\\"427B23877D32F8...\",\n   \"timestamp\": 1537247233251.0\n}, {\n   \"level\": \"INFO\",\n   \"message\": \"{\\\"message\\\":{\\\"method\\\":\\\"Page.frameNavigated\\\",\\\"params\\\":{\\\"frame\\\":{\\\"id\\\":\\\"427B23877D32F8ABBE11D55793D40C52\\\",\\\"loaderId\\\":\\\"784F0F39E49D1F08B60DBC545DB620AE\\\",\\\"mimeType\\\":\\\"text/html\\\",\\\"securityOrigin\\\":\\\"https://...\",\n   \"timestamp\": 1537247233251.0\n}, {\n   \"level\": \"INFO\",\n   \"message\": \"{\\\"message\\\":{\\\"method\\\":\\\"Network.dataReceived\\\",\\\"params\\\":{\\\"dataLength\\\":0,\\\"encodedDataLength\\\":6253,\\\"requestId\\\":\\\"784F0F39E49D1F08B60DBC545DB620AE\\\",\\\"timestamp\\\":99651.456963}},\\\"webview\\\":\\\"427B23877D32F8ABBE...\",\n   \"timestamp\": 1537247233252.0\n}, {\n   \"level\": \"INFO\",\n   \"message\": \"{\\\"message\\\":{\\\"method\\\":\\\"Network.loadingFinished\\\",\\\"params\\\":{\\\"blockedCrossSiteDocument\\\":false,\\\"encodedDataLength\\\":10349,\\\"requestId\\\":\\\"784F0F39E49D1F08B60DBC545DB620AE\\\",\\\"timestamp\\\":99651.432807}},\\\"webvie...\",\n   \"timestamp\": 1537247233252.0\n}, {\n   \"level\": \"INFO\",\n   \"message\": \"{\\\"message\\\":{\\\"method\\\":\\\"Network.requestWillBeSent\\\",\\\"params\\\":{\\\"documentURL\\\":\\\"https://qa.clatterans.com/\\\",\\\"frameId\\\":\\\"427B23877D32F8ABBE11D55793D40C52\\\",\\\"hasUserGesture\\\":false,\\\"initiator\\\":{\\\"lineNumber\\\":8...\",\n   \"timestamp\": 1537247233274.0\n}, {\n   \"level\": \"INFO\",\n   \"message\": \"{\\\"message\\\":{\\\"method\\\":\\\"Network.requestWillBeSent\\\",\\\"params\\\":{\\\"documentURL\\\":\\\"https://qa.clatterans.com/\\\",\\\"frameId\\\":\\\"427B23877D32F8ABBE11D55793D40C52\\\",\\\"hasUserGesture\\\":false,\\\"initiator\\\":{\\\"lineNumber\\\":9...\",\n   \"timestamp\": 1537247233275.0\n}, {\n   \"level\": \"INFO\",\n   \"message\": \"{\\\"message\\\":{\\\"method\\\":\\\"Network.requestWillBeSent\\\",\\\"params\\\":{\\\"documentURL\\\":\\\"https://qa.clatterans.com/\\\",\\\"frameId\\\":\\\"427B23877D32F8ABBE11D55793D40C52\\\",\\\"hasUserGesture\\\":false,\\\"initiator\\\":{\\\"lineNumber\\\":1...\",\n   \"timestamp\": 1537247233275.0\n}, {\n   \"level\": \"INFO\",\n   \"message\": \"{\\\"message\\\":{\\\"method\\\":\\\"Network.requestWillBeSent\\\",\\\"params\\\":{\\\"documentURL\\\":\\\"https://qa.clatterans.com/\\\",\\\"frameId\\\":\\\"427B23877D32F8ABBE11D55793D40C52\\\",\\\"hasUserGesture\\\":false,\\\"initiator\\\":{\\\"lineNumber\\\":1...\",\n   \"timestamp\": 1537247233275.0\n}, {\n   \"level\": \"INFO\",\n   \"message\": \"{\\\"message\\\":{\\\"method\\\":\\\"Network.requestWillBeSent\\\",\\\"params\\\":{\\\"documentURL\\\":\\\"https://qa.clatterans.com/\\\",\\\"frameId\\\":\\\"427B23877D32F8ABBE11D55793D40C52\\\",\\\"hasUserGesture\\\":false,\\\"initiator\\\":{\\\"lineNumber\\\":1...\",\n   \"timestamp\": 1537247233275.0\n}, {\n   \"level\": \"INFO\",\n   \"message\": \"{\\\"message\\\":{\\\"method\\\":\\\"Network.requestWillBeSent\\\",\\\"params\\\":{\\\"documentURL\\\":\\\"https://qa.clatterans.com/\\\",\\\"frameId\\\":\\\"427B23877D32F8ABBE11D55793D40C52\\\",\\\"hasUserGesture\\\":false,\\\"initiator\\\":{\\\"lineNumber\\\":1...\",\n   \"timestamp\": 1537247233275.0\n}, {\n   \"level\": \"INFO\",\n   \"message\": \"{\\\"message\\\":{\\\"method\\\":\\\"Network.requestWillBeSent\\\",\\\"params\\\":{\\\"documentURL\\\":\\\"https://qa.clatterans.com/\\\",\\\"frameId\\\":\\\"427B23877D32F8ABBE11D55793D40C52\\\",\\\"hasUserGesture\\\":false,\\\"initiator\\\":{\\\"lineNumber\\\":1...\",\n   \"timestamp\": 1537247233275.0\n}, \"...\" ]\n",
+        "timestamp": 1537247256148
+    },
+    {
+        "level": "INFO",
+        "message": "COMMAND GetLog {\n   \"sessionId\": \"82dc3aef230504ef41ada303665abbf8\",\n   \"type\": \"driver\"\n}\n",
+        "timestamp": 1537247256167
+    }
+]

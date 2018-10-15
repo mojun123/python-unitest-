@@ -1,0 +1,44 @@
+[
+    {
+        "level": "SEVERE",
+        "message": "https://qa.clatterans.com/test - Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "source": "network",
+        "timestamp": 1537251875900
+    },
+    {
+        "level": "SEVERE",
+        "message": "https://img.clatterans.com/products_pictures/180/0/1_3_F.jpg - Failed to load resource: the server responded with a status of 415 (Unsupported Media Type)",
+        "source": "network",
+        "timestamp": 1537251876634
+    },
+    {
+        "level": "SEVERE",
+        "message": "https://img.clatterans.com/products_pictures/180/0/2_14_F.jpg - Failed to load resource: the server responded with a status of 415 (Unsupported Media Type)",
+        "source": "network",
+        "timestamp": 1537251876818
+    },
+    {
+        "level": "SEVERE",
+        "message": "https://img.clatterans.com/products_pictures/180/0/4_37_F.jpg - Failed to load resource: the server responded with a status of 415 (Unsupported Media Type)",
+        "source": "network",
+        "timestamp": 1537251876824
+    },
+    {
+        "level": "SEVERE",
+        "message": "https://img.clatterans.com/products_pictures/180/0/5_47_F.jpg - Failed to load resource: the server responded with a status of 415 (Unsupported Media Type)",
+        "source": "network",
+        "timestamp": 1537251876872
+    },
+    {
+        "level": "SEVERE",
+        "message": "https://img.clatterans.com/products_pictures/180/0/3_30_F.jpg - Failed to load resource: the server responded with a status of 415 (Unsupported Media Type)",
+        "source": "network",
+        "timestamp": 1537251876889
+    },
+    {
+        "level": "SEVERE",
+        "message": "https://img.clatterans.com/products_pictures/180/0/6_56_F.jpg - Failed to load resource: the server responded with a status of 415 (Unsupported Media Type)",
+        "source": "network",
+        "timestamp": 1537251876889
+    }
+]
