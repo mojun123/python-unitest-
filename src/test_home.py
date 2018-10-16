@@ -4,7 +4,7 @@ import os
 import time
 
 from utils import commons as chd
-from testcase.HomePage import Home
+from testcase.page_asserts import home_page_asserts as hpa
 from pprint import pprint
 #import line_profiler
 # if 'profile' not in dir():
@@ -35,8 +35,8 @@ class HomeTestSuits(unittest.TestCase):
 	@classmethod
 	def setUpClass(cls):
 
-		cls.url = "https://www.nighslee.com/"
-		cls.home_page_obj = Home()
+		cls.url = "https://www.genkifitness.com/"
+		cls.home_page_obj = hpa.HomeAsserts()
 		# cls.home_page_obj.headless = False
 		# cls.home_page_obj.disable_imges = True
 		# cls.home_page_obj.start_maximized = True
@@ -52,73 +52,162 @@ class HomeTestSuits(unittest.TestCase):
 		cls.home_page_obj.init_driver('all_logs', log_conf)
 		cls.start_time = time.time()
 
-	def home_page(self, url=''):
+	def home_page(self, url='', b_refresh=True):
 		url = url or self.url
-		self.test_case_name = self._testMethodName
-		self.home_page_obj.init_case_name(self.test_case_name)
-		title = "Best Memory Foam Mattress & Pillow For Sale Under $500 | Nighslee" 
-		self.home_page_obj.init_base_infos(url)
+		title = 'Genkifitness.com'
+		if not b_refresh:
+			self.test_case_name = self._testMethodName
+			self.home_page_obj.init_case_name(self.test_case_name)
+			self.home_page_obj.init_base_infos(url, title)
 		self.home_page_obj.open(url)
-		from testcase.common_page import CommonPage
-		self.c_page = CommonPage(self.home_page_obj)
-		self.c_page.close_popup()
 
-	def check_home_menu(self, menu_name, reverse=True):
+
+	def test_welcome_without_login(self):
+		self.home_page(False)
+		self.home_page_obj.check_tvc_welcome()
+
+	def test_init_login_popup(self):
 		self.home_page()
-		element, e_menu = self.home_page_obj._dispatch(menu_name, reverse)
-		try:
-			element.click()
-			msg = "click {0} cannot jump to {0} page. current_url: ".format(menu_name) + self.home_page_obj.driver.current_url
-			if "home" not in menu_name:
-				assert menu_name in self.home_page_obj.driver.current_url, msg
-				reverse = not reverse
-			else:
-				reverse = False
-			element, _ = self.home_page_obj._dispatch(menu_name, reverse)
-			return self.home_page_obj
-		except Exception as e:
-			print("check_home_menu except: ", self.home_page_obj.get_innerHTML(e_menu))
-			self.home_page_obj.check_browser_error_by_current_url()
-			nowTime = time.strftime("%Y%m%d.%H.%M.%S")
-			file_name = os.path.join('..', 'screenshot', self.__class__.__name__, self.test_case_name, 'cannot-click-%s-%s.png' % (menu_name, nowTime))
-			self.home_page_obj.save_png(file_name)
-			print("[error] cannot click " + menu_name)
-			raise e
+		self.home_page_obj.check_login_popup_status()
 
-	# @profile
-	def test_home(self):
-		menu_name = "home"
-		reverse = False
-		self.home_page_obj = self.check_home_menu(menu_name, reverse)
-		self.home_page_obj.check_all_menu(menu_name)
+	def test_active_login_popup(self):
+		self.home_page()
+		e_sign_in_or_register = self.home_page_obj.get_tvc_account_sign_in_or_register()
+		e_sign_in_or_register.click()
+		self.home_page_obj.check_login_popup_status(True)
 
-	# @profile
-	def test_home_mattress(self):
-		menu_name = "mattress"
-		reverse = True
-		self.home_page_obj = self.check_home_menu(menu_name, reverse)
-		self.home_page_obj.check_all_menu(menu_name)
+	def test_my_account_href_without_login(self):
+		self.home_page()
+		element = self.home_page_obj.get_tvc_account_my_account()
+		expected_text = self.url + 'login?r=/myaccount'
+		self.home_page_obj.check_url_after_click_href(expected_text, element)
 
-	# @profile
-	def test_home_reviews(self):
-		menu_name = "reviews"
-		reverse = True
-		self.home_page_obj = self.check_home_menu(menu_name, reverse)
-		self.home_page_obj.check_all_menu(menu_name)
+	def test_view_cart_href(self):
+		self.home_page()
+		element = self.home_page_obj.get_tvc_view_cart_btn()
+		expected_text = self.url + 'viewcart'
+		self.home_page_obj.check_url_after_click_href(expected_text, element)
 
-	# @profile
-	def test_home_faqs(self):
-		menu_name = "faqs"
-		reverse = True
-		self.home_page_obj = self.check_home_menu(menu_name, reverse)
-		self.home_page_obj.check_all_menu(menu_name)
+	def test_best_sellers_href(self):
+		self.home_page()
+		element = self.home_page_obj.get_menu_best_sellers()
+		expected_text = self.url + 'bestseller'
+		self.home_page_obj.check_url_after_click_href(expected_text, element)
 
-	# @profile
-	def test_home_contact(self):
-		menu_name = "contact"
-		reverse = True
-		self.home_page_obj = self.check_home_menu(menu_name, reverse)
-		self.home_page_obj.check_all_menu(menu_name)
+	def test_track_my_order_href(self):
+		self.home_page()
+		element = self.home_page_obj.get_menu_track_order()
+		expected_text = self.url + 'trackorder'
+		self.home_page_obj.check_url_after_click_href(expected_text, element)
+
+	def test_help_href(self):
+		self.home_page()
+		element = self.home_page_obj.get_menu_help()
+		expected_text = self.url + 'article/faq'
+		self.home_page_obj.check_url_after_click_href(expected_text, element)
+
+	def test_product_list_qty(self):
+		self.home_page()
+		_, list_skus = self.home_page_obj.get_pl_len_sku()
+		expected_qty = 8
+		self.home_page_obj.assertEqual(expected_qty, len(list_skus))
+
+	def test_first_sku_infos(self):
+		self.home_page()
+		 
+		e_title = self.home_page_obj.get_pl_first_list_box_href()
+		e_title_text = e_title.text
+		e_title_text = e_title_text.replace('\"', '')
+		import re
+		e_title_text = re.sub(r'\s+', ' ', e_title_text)
+		e_price = self.home_page_obj.get_pl_first_list_box_price()
+		e_price_text = e_price.text
+
+		sku_info_file = os.path.join(BASEDIR, 'conf', 'expected_infos', 'home_page_list_sku_infos.conf')
+
+		from utils.read_confs import ReadConf
+		config_parser = ReadConf(sku_info_file)
+		section = 'first_sku_infos'
+		expected_title = config_parser.get_value_by_key('title', section)
+		expected_title = re.sub(r'\s+', ' ', expected_title)
+		expected_price = config_parser.get_value_by_key('price', section)
+		expected_url = config_parser.get_value_by_key('url', section)
+
+		self.home_page_obj.assertIn(expected_title, e_title_text)
+		self.home_page_obj.assertIn(expected_price, e_price_text)
+
+		self.home_page_obj.scroll_to_element(e_title)
+		self.home_page_obj.assertIn(expected_url, self.home_page_obj.driver.current_url)
+
+	def test_about_us(self):
+		self.home_page()
+		element = self.home_page_obj.get_ft_cp_about_us()
+		expected_text = self.url + 'article/about'
+		self.home_page_obj.check_url_after_click_href(expected_text, element)
+	
+	def test_terms(self):
+		self.home_page()
+		element = self.home_page_obj.get_ft_terms()
+		expected_text = self.url + 'article/terms'
+		self.home_page_obj.check_url_after_click_href(expected_text, element)
+	
+	def test_privacy(self):
+		self.home_page()
+		element = self.home_page_obj.get_ft_privacy()
+		expected_text = self.url + 'article/privacy'
+		self.home_page_obj.check_url_after_click_href(expected_text, element)
+	
+	def test_warranty(self):
+		self.home_page()
+		element = self.home_page_obj.get_ft_warranty()
+		expected_text = self.url + 'article/warranty'
+		self.home_page_obj.check_url_after_click_href(expected_text, element)
+	
+	def test_sit_map(self):
+		self.home_page()
+		element = self.home_page_obj.get_ft_sit_map()
+		expected_text = self.url + 'sitemap'
+		self.home_page_obj.check_url_after_click_href(expected_text, element)
+
+	def test_contact_us(self):
+		self.home_page()
+		element = self.home_page_obj.get_ft_cs_contact_us()
+		expected_text = self.url + 'contactus'
+		self.home_page_obj.check_url_after_click_href(expected_text, element)
+	
+	def test_ft_my_account_without_login(self):
+		self.home_page()
+		element = self.home_page_obj.get_ft_cs_my_account()
+		expected_text = self.url + 'login?r=/myaccount'
+		self.home_page_obj.check_url_after_click_href(expected_text, element)
+	
+	def test_faq(self):
+		self.home_page()
+		element = self.home_page_obj.get_ft_cs_faq()
+		expected_text = self.url + 'article/faq'
+		self.home_page_obj.check_url_after_click_href(expected_text, element)
+
+	def test_shipping_guide(self):
+		self.home_page()
+		element = self.home_page_obj.get_ft_sr_shipping_guide()
+		expected_text = self.url + 'article/shipping'
+		self.home_page_obj.check_url_after_click_href(expected_text, element)
+	
+	def test_return_policy(self):
+		self.home_page()
+		element = self.home_page_obj.get_ft_sr_return_policy()
+		expected_text = self.url + 'article/return'
+		self.home_page_obj.check_url_after_click_href(expected_text, element)
+	
+	def test_ft_track_my_order(self):
+		self.home_page()
+		element = self.home_page_obj.get_ft_sr_track_my_order()
+		expected_text = self.url + 'trackorder'
+		self.home_page_obj.check_url_after_click_href(expected_text, element)
+
+	def test_welcome_with_login(self):
+		expected_text = yang
+		self.check_tvc_welcome(expected_text)
 
 	@classmethod
 	def tearDownClass(cls):
@@ -130,17 +219,35 @@ def main():
 	from utils import case_suits
 
 	test_suits = case_suits.CaseSuits()
-	test_suits.add_home_suit('test_home')
-	test_suits.add_home_suit(('test_home_mattress'))
-	test_suits.add_home_suit(('test_home_reviews'))
-	test_suits.add_home_suit(('test_home_faqs'))
-	test_suits.add_home_suit(('test_home_contact'))
+	test_suits.add_home_suit('test_welcome_without_login')
+	test_suits.add_home_suit('test_init_login_popup')
+	test_suits.add_home_suit('test_active_login_popup')
+	test_suits.add_home_suit('test_my_account_href_without_login')
+	test_suits.add_home_suit('test_view_cart_href')
+	test_suits.add_home_suit('test_best_sellers_href')
+	test_suits.add_home_suit('test_track_my_order_href')
+	test_suits.add_home_suit('test_help_href')
+	test_suits.add_home_suit('test_product_list_qty')
+	test_suits.add_home_suit('test_first_sku_infos')
+	test_suits.add_home_suit('test_about_us')
+	test_suits.add_home_suit('test_terms')
+	test_suits.add_home_suit('test_privacy')
+	test_suits.add_home_suit('test_warranty')
+	test_suits.add_home_suit('test_sit_map')
+	test_suits.add_home_suit('test_contact_us')
+	test_suits.add_home_suit('test_ft_my_account_without_login')
+	test_suits.add_home_suit('test_faq')
+	test_suits.add_home_suit('test_shipping_guide')
+	test_suits.add_home_suit('test_return_policy')
+	test_suits.add_home_suit('test_ft_track_my_order')
+
 	
 	file_name = "test_home_result_"
 
 	from utils import report_to_wechat as rtw
-	result = rtw.run_suites(file_name, test_suits.suits)
-	rtw.report(result)
+	retry_number = 0
+	result = rtw.run_suites(file_name, test_suits.suits, retry_number)
+	# rtw.report(result)
 
 if __name__ == "__main__":
 	main()

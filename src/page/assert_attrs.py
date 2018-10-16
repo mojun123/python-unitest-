@@ -160,13 +160,33 @@ class AssertAttrs(LocateElements):
 	def assertInOrNotIn(self, expected_attr, real_attr, msg='', reverse=False):
 		
 		if not reverse:
-			self.assertIn(expected_attr, real_attr)
+			self.assertIn(expected_attr, real_attr, msg)
 		else:
-			self.assertNotIn(expected_attr, real_attr)
+			self.assertNotIn(expected_attr, real_attr, msg)
 
 	def assertEqOrNotEqual(self, expected_attr, real_attr, msg='', reverse=False):
 		
 		if not reverse:
-			self.assertEqual(expected_attr, real_attr)
+			self.assertEqual(expected_attr, real_attr, msg)
 		else:
-			self.assertNotEqual(expected_attr, real_attr)
+			self.assertNotEqual(expected_attr, real_attr, msg)
+
+	def assert_text_by_lower(self, expected_attr, element, msg=''):
+		
+		try:
+			real_attr = element.text
+			real_attr = real_attr.lower()
+			if not msg:
+				msg = " Expected attribute: {} in the real attribute: {}".format(expected_attr, real_attr)
+			assert expected_attr in real_attr, msg 
+		except Exception as e:
+			self.save_png()
+			self.check_browser_error_by_current_url()
+			raise e
+
+	def assert_attr_in_or_not_by_attr_name(self, expected_attr, attr_name, element, msg='', reverse=False):
+		real_attr = element.get_attribute(attr_name)
+		if reverse:
+			self.assertIn(expected_attr, real_attr, msg)
+		else:
+			self.assertNotIn(expected_attr, real_attr, msg)

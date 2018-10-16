@@ -46,6 +46,7 @@ class ChromeBase(object):
 		# self.server_log = False
 		self.test_case_name = 'defaults'
 		self.test_class_name = 'log'
+		self.title = ''
 
 	def assrt_page(self):
 		assert self.title in self.driver.title

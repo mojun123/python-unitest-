@@ -748,7 +748,7 @@ class LocateElements(BrowserLogs):
 			print(self.get_innerHTML(driver))
 			print("cannot find child by index: {} in elements: {}".format(index, e_childs))
 			return 
-		return result
+		return result, e_childs
 		
 
 	def get_element_child_by_xpath(self, e_xpath, index=0, driver=None, timeout=30):
@@ -762,7 +762,7 @@ class LocateElements(BrowserLogs):
 			print(self.get_innerHTML(driver))
 			print("cannot find child by index: {} in elements: {}".format(index, e_childs))
 			return 
-		return result
+		return result, e_childs
 		
 
 	def get_element_child_by_link_text(self, e_link_text, index=0, driver=None, timeout=30):
@@ -776,7 +776,7 @@ class LocateElements(BrowserLogs):
 			print(self.get_innerHTML(driver))
 			print("cannot find child by index: {} in elements: {}".format(index, e_childs))
 			return 
-		return result
+		return result, e_childs
 		
 
 	def get_element_child_by_partial_link_text(self, e_partial_link_text, index=0, driver=None, timeout=30):
@@ -790,7 +790,7 @@ class LocateElements(BrowserLogs):
 			print(self.get_innerHTML(driver))
 			print("cannot find child by index: {} in elements: {}".format(index, e_childs))
 			return 
-		return result
+		return result, e_childs
 		
 
 	def get_element_child_by_tag_name(self, e_tag_name, index=0, driver=None, timeout=30):
@@ -804,7 +804,7 @@ class LocateElements(BrowserLogs):
 			print(self.get_innerHTML(driver))
 			print("cannot find child by index: {} in elements: {}".format(index, e_childs))
 			return 
-		return result
+		return result, e_childs
 		
 
 	def get_element_child_by_class_name(self, e_class_name, index=0, driver=None, timeout=30):
@@ -818,7 +818,7 @@ class LocateElements(BrowserLogs):
 			print(self.get_innerHTML(driver))
 			print("cannot find child by index: {} in elements: {}".format(index, e_childs))
 			return 
-		return result
+		return result, e_childs
 		
 
 	def get_element_child_by_css_selector(self, e_css_selector, index=0, driver=None, timeout=30):
@@ -832,7 +832,7 @@ class LocateElements(BrowserLogs):
 			print(self.get_innerHTML(driver))
 			print("cannot find child by index: {} in elements: {}".format(index, e_childs))
 			return 
-		return result
+		return result, e_childs
 	
 	def get_select_element(self, element):
 		return Select(element)
