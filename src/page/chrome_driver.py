@@ -9,10 +9,6 @@ class ExcuteJS(AssertAttrs):
 	def scroll_to_offset(self, offset=0):
 		self.driver.execute_script("window.scrollTo(0, %s);" % offset)
 
-	def get_parent_by_js(self, element):
-		if element:
-			return self.driver.execute_script( "return arguments[0].parentNode;", element)
-
 	def scroll_to_element_by_js(self, element, alignToTop='true'):
 		if element:
 			return self.driver.execute_script("arguments[0].scrollIntoView({});".format(alignToTop), element)
@@ -40,6 +36,25 @@ class ExcuteJS(AssertAttrs):
 		important meaning style=display:none will not be change
 		'''
 		self.driver.execute_script("arguments[0].style.setProperty('display', 'none', 'important');", element)
+
+	def assert_url_after_click_href_by_key_word(self, _key_word, element, is_new_tab=False):
+
+		self.assertIsNotNone(element)
+		self.scroll_to_element(element)
+
+		if not is_new_tab:
+			self.assertIn(_key_word, self.driver.current_url)
+		
+		else:
+			current_window_handle = self.driver.current_window_handle
+			window_handles = self.driver.window_handles
+			window_handles_qty = len(window_handles)
+			self.assert_greater_equal(window_handles_qty, 2)
+			self.driver.switch_to_window(window_handles[1])
+
+			self.assertIn(_key_word, self.driver.current_url)
+			self.driver.close()
+			self.driver.switch_to_window(current_window_handle)
 
 class DriverKeys(ExcuteJS):
 	
@@ -81,8 +96,6 @@ class ChromeDriver(DriverKeys):
 
 	def refresh(self):
 		return self.driver.refresh()
-
-	
 
 	def random_user_agents(self, browser_type='chrome'):
 		# print(1111111111111)

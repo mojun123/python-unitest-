@@ -3,8 +3,8 @@ import unittest
 import os
 import time
 
-from utils import commons as chd
-from testcase.page_asserts import home_page_asserts as hpa
+from src.utils import commons as chd
+from src.testcase.page_asserts import home_page_asserts as hpa
 from pprint import pprint
 #import line_profiler
 # if 'profile' not in dir():
@@ -37,15 +37,15 @@ class HomeTestSuits(unittest.TestCase):
 
 		cls.url = "https://www.genkifitness.com/"
 		cls.home_page_obj = hpa.HomeAsserts()
-		# cls.home_page_obj.headless = False
-		# cls.home_page_obj.disable_imges = True
-		# cls.home_page_obj.start_maximized = True
+		cls.home_page_obj.headless = False
+
+		cls.home_page_obj.start_maximized = True
 		cls.home_page_obj.set_chrome_options()
 		
 		proxy_json_file = os.path.join(BASEDIR,'conf', 'proxy.json')
-		proxy = chd.random_proxy_from_file(proxy_json_file)
-		cls.home_page_obj.add_proxy(proxy)
-		# cls.home_page_obj.add_proxy('socks5://192.168.10.20:1081')
+		# proxy = chd.random_proxy_from_file(proxy_json_file)
+		# cls.home_page_obj.add_proxy(proxy)
+		#cls.home_page_obj.add_proxy('socks5://192.168.10.20:1081')
 		cls.home_page_obj.init_class_name(cls.__name__)
 		
 		log_conf = os.path.join(BASEDIR,'conf','log.conf')
@@ -125,7 +125,7 @@ class HomeTestSuits(unittest.TestCase):
 
 		sku_info_file = os.path.join(BASEDIR, 'conf', 'expected_infos', 'home_page_list_sku_infos.conf')
 
-		from utils.read_confs import ReadConf
+		from src.utils.read_confs import ReadConf
 		config_parser = ReadConf(sku_info_file)
 		section = 'first_sku_infos'
 		expected_title = config_parser.get_value_by_key('title', section)
@@ -206,7 +206,7 @@ class HomeTestSuits(unittest.TestCase):
 		self.home_page_obj.check_url_after_click_href(expected_text, element)
 
 	def test_welcome_with_login(self):
-		expected_text = yang
+		expected_text = 'yang'
 		self.check_tvc_welcome(expected_text)
 
 	@classmethod
@@ -216,7 +216,7 @@ class HomeTestSuits(unittest.TestCase):
 		cls.home_page_obj.driver.quit()
 
 def main():
-	from utils import case_suits
+	from src.utils import case_suits
 
 	test_suits = case_suits.CaseSuits()
 	test_suits.add_home_suit('test_welcome_without_login')
@@ -224,30 +224,30 @@ def main():
 	test_suits.add_home_suit('test_active_login_popup')
 	test_suits.add_home_suit('test_my_account_href_without_login')
 	test_suits.add_home_suit('test_view_cart_href')
-	test_suits.add_home_suit('test_best_sellers_href')
-	test_suits.add_home_suit('test_track_my_order_href')
-	test_suits.add_home_suit('test_help_href')
-	test_suits.add_home_suit('test_product_list_qty')
-	test_suits.add_home_suit('test_first_sku_infos')
-	test_suits.add_home_suit('test_about_us')
-	test_suits.add_home_suit('test_terms')
-	test_suits.add_home_suit('test_privacy')
-	test_suits.add_home_suit('test_warranty')
-	test_suits.add_home_suit('test_sit_map')
-	test_suits.add_home_suit('test_contact_us')
-	test_suits.add_home_suit('test_ft_my_account_without_login')
-	test_suits.add_home_suit('test_faq')
-	test_suits.add_home_suit('test_shipping_guide')
-	test_suits.add_home_suit('test_return_policy')
-	test_suits.add_home_suit('test_ft_track_my_order')
+	# test_suits.add_home_suit('test_best_sellers_href')
+	# test_suits.add_home_suit('test_track_my_order_href')
+	# test_suits.add_home_suit('test_help_href')
+	# test_suits.add_home_suit('test_product_list_qty')
+	# test_suits.add_home_suit('test_first_sku_infos')
+	# test_suits.add_home_suit('test_about_us')
+	# test_suits.add_home_suit('test_terms')
+	# test_suits.add_home_suit('test_privacy')
+	# test_suits.add_home_suit('test_warranty')
+	# test_suits.add_home_suit('test_sit_map')
+	# test_suits.add_home_suit('test_contact_us')
+	# test_suits.add_home_suit('test_ft_my_account_without_login')
+	# test_suits.add_home_suit('test_faq')
+	# test_suits.add_home_suit('test_shipping_guide')
+	# test_suits.add_home_suit('test_return_policy')
+	# test_suits.add_home_suit('test_ft_track_my_order')
 
 	
 	file_name = "test_home_result_"
 
-	from utils import report_to_wechat as rtw
+	from src.utils import report_to_wechat as rtw
 	retry_number = 0
 	result = rtw.run_suites(file_name, test_suits.suits, retry_number)
-	# rtw.report(result)
+
 
 if __name__ == "__main__":
 	main()

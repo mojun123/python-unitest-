@@ -3,9 +3,9 @@ import sys
 BASEDIR = os.path.dirname(os.getcwd())
 sys.path.append(BASEDIR)
 
-from page.locate_elements import LocateElements
+from page.locate_element_by_js import LocateElementsByJS
 
-class AssertAttrs(LocateElements):
+class AssertAttrs(LocateElementsByJS):
 	
 
 	def save_png(self, file_name=''):
@@ -190,3 +190,20 @@ class AssertAttrs(LocateElements):
 			self.assertIn(expected_attr, real_attr, msg)
 		else:
 			self.assertNotIn(expected_attr, real_attr, msg)
+
+	def assert_select_status(self, element, expected_attr=False, reverse=False):
+		self.assertIsNotNone(element)
+		real_attr = element.is_selected()
+		msg = "expected status: %s, but got status: %s" % (expected_attr, real_attr)
+		self.assertEqOrNotEqual(expected_attr, real_attr, msg, reverse)
+
+	def assert_greater_equal(self, expected_attr, real_attr, msg=''):
+		if not msg:
+			msg = " Expected attribute: {} in the real attribute: {}".format(expected_attr, real_attr)
+
+		try:
+			assert expected_attr >= real_attr, msg 
+		except Exception as e:
+			self.save_png()
+			self.check_browser_error_by_current_url()
+			raise e

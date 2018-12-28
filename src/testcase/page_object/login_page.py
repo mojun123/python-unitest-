@@ -1,148 +1,154 @@
 from page.chrome_driver import ChromeDriver as cdriver
-
-class Home(cdriver):
-	def __init__(self, driver=''):
-		super(Home, self).__init__()
+ 
+class Login(cdriver):
+	def _init_(self,driver=""):
+		super(Login,self).__init__()
 		if driver:
 			self.driver = driver
 
-	def get_popup_close(self):
-		e_id = 'lb-close'
+	
+    #newcustomer
+	def get_login_address(self):
+		e_name = 'regEmail'
+		return self.find_element_by_name(e_name)
+
+	def get_login_emailpassword(self):
+		e_name = 'regPassword'
+		return self.find_element_by_name(e_name)
+
+	def get_login_confirmpassword(self):
+		e_name = 'regPassword2'
+		return self.find_element_by_name(e_name)
+
+	def get_login_name(self):
+		e_name = 'regName'
+		return self.find_element_by_name(e_name)
+
+	def get_login_newsletter(self):
+		e_id = 'newsletter'
 		return self.find_element_by_id(e_id)
 
-	def get_popup_ui(self):
+	def get_login_border(self):
 		e_id = 'popup-login-border'
 		return self.find_element_by_id(e_id)
 
-	#to get login area
-	def get_email(self):
-		name = 'loginEmail'
-		return self.find_element_by_name(name)
+	def get_login_table(self):
+		e_parent = self.get_login_border()
+		self.asserIsNotNone(e_parent)
+		e_tage_name = 'table'
+		element,_ = self.get_element_child_by_tag_name(e_tage_name, 2, e_parent)
+		return element
+     
+	def get_login_td(self):
+		e_parent = self.get_login_table()
+		self.asserIsNotNone(e_parent)
+		e_tage_name = 'td'
+		element,_ = self.get_element_child_by_tag_name(e_tage_name, 1, e_parent)
+		return element
 
-	def get_password(self):
-		name = 'loginPassword'
-		return self.find_element_by_name(name)
+	def get_login_learn(self):
+		e_parent = self.get_login_td()
+		self.asserIsNotNone(e_parent)
+		e_tage_name = 'a'
+		element,_ = self.get_element_child_by_tag_name(e_tage_name, 0, e_parent)
+		return element	
 
-	def get_signin_and_forgot_pwd(self):
-		e_parent = self.get_popup_ui()
-		self.assertIsNotNone(e_parent)
+	def get_login_aggres(self):
+		e_id = 'terms'	
+		return self.find_element_by_id(e_id)
+    
+	def get_login_tr(self):
+		e_parent = self.get_login_border()
+		self.asserIsNotNone(e_parent)
 		e_tage_name = 'tr'
-		index = -4
-		element, _ = self.get_element_child_by_tag_name(e_tage_name, index, e_parent)
+		element,_ = self.get_element_child_by_tag_name(e_tage_name, 9, e_parent)
 		return element
 
-	def get_signin_and_forgot_pwd_child(self, index=0):
-		e_parent = self.get_signin_and_forgot_pwd()
-		self.assertIsNotNone(e_parent)
+	def get_login_td(self):
+		e_parent = self.get_login_tr()
+		self.asserIsNotNone(e_parent)
+		e_tage_name = 'td'
+		element,_ = self.get_element_child_by_tag_name(e_tage_name, 1, e_parent)
+		return element
+
+	def get_login_terms(self):
+		e_parent = self.get_login_td()    
+		self.asserIsNotNone(e_parent)
 		e_tage_name = 'a'
-		element, _ = self.get_element_child_by_tag_name(e_tage_name, index, e_parent)
+		element,_ = self.get_element_child_by_tag_name(e_tage_name, 0, e_parent)
+		return element 
+
+	def get_login_try(self):
+		e_parent = self.get_login_border()
+		self.asserIsNotNone(e_parent)
+		e_tage_name = 'tr'
+		element,_ = self.get_element_child_by_tag_name(e_tage_name, 9, e_parent)
 		return element
 
-	def get_sign_in(self):
-		index = 0
-		return self.get_signin_and_forgot_pwd_child(index)
+	def get_login_tdy(self):
+		e_parent = self.get_login_try()
+		self.asserIsNotNone(e_parent)
+		e_tage_name = 'td'
+		element,_ = self.get_element_child_by_tag_name(e_tage_name, 1, e_parent)
+		return element
 
-	def login(self, email, pwd):
-
-		e_email = self.get_email()
-		e_pwd = self.get_password()
-
-		e_email.clear()
-		e_email.send_keys(email)
-		e_pwd.clear()
-		e_pwd.send_keys(pwd)
-		e_login = self.get_sign_in()
-
-		return e_login
-
-	def get_forgot_password(self):
-		index = 1
-		return self.get_signin_and_forgot_pwd_child(index)
-
-	def get_third_part_login(self):
-		e_class_name = 'loginSNS'
-		return find_element_by_class_name(e_class_name)
-
-	def get_third_part_login_child(self, index=0):
-		e_parent = self.get_third_part_login()
-		self.assertIsNotNone(e_parent)
+	def get_login_register(self):
+		e_parent = self.get_login_tdy()    
+		self.asserIsNotNone(e_parent)
 		e_tage_name = 'a'
-		element, _ = self.get_element_child_by_tag_name(e_tage_name, index, e_parent)
+		element,_ = self.get_element_child_by_tag_name(e_tage_name, 0, e_parent)
+		return element 
+
+	def get_login_loginemail(self):    
+		e_name = 'loginEmail'
+		return self.find_element_by_name(e_name)
+
+	def get_login_passworld(self):
+		e_name = 'loginPassworld'
+		return self.find_element_by_name(e_name)
+    
+	def get_login_sig(self):
+		e_parent = self.get_login_border()
+		self.asserIsNotNone(e_parent)
+		e_tage_name = 'tr'
+		elment,_ = self.get_element_child_by_tag_name(e_tage_name, 6, e_parent)
 		return element
 
-	def get_facebook(self):
-		index = 0
-		return self.get_third_part_login_child(index)
-
-	def get_google(self):
-		index = 1
-		return self.get_third_part_login_child(index)
-
-	#to get register area element
-	def get_rg_table(self):
-		e_parent = self.get_popup_ui()
-		self.assertIsNotNone(e_parent)
-		e_tage_name = 'table'
-		index = 1 #second table
-		element, _ = self.get_element_child_by_tag_name(e_tage_name, index, e_parent)
+	def get_login_sigi(self):
+		e_parent = self.get_login_sig()
+		self.asserIsNotNone(e_parent)
+		e_tage_name = 'td'
+		element,_ = self.get_element_child_by_tag_name(e_tage_name, 1, e_parent)
 		return element
-
-	def get_rg_table_child(self, e_tage_name='a', index=0):
-		e_parent = self.get_rg_table()
-		self.assertIsNotNone(e_parent)
-		element, _ = self.get_element_child_by_tag_name(e_tage_name, index, e_parent)
-		return element
-
-	def get_rg_email(self):
-		name = 'regEmail'
-		return self.find_element_by_name(name)
-
-	def get_rg_password(self):
-		name = 'regPassword'
-		return self.find_element_by_name(name)
-
-	def get_rg_password_confirm(self):
-		name = 'regPassword2'
-		return self.find_element_by_name(name)
-
-	def get_rg_name(self):
-		name = 'regName'
-		return self.find_element_by_name(name)
-
-	
-	def get_rg_newsletter(self):
-		name = 'newsletter'
-		return self.find_element_by_name(name)
-
-	def get_rg_terms(self):
-		name = 'terms'
-		return self.find_element_by_name(name)
-
-	def get_register(self):
-		index = -1
+     
+	def get_login_sigin(self):
+		e_parent = self.get_login_sigi()
+		self.asserIsNotNone(e_parent)
 		e_tage_name = 'a'
-		return self.get_rg_table_child(e_tage_name, index)
-
-	def get_terms_table(self):
-		index = -1
-		e_tage_name = 'table'
-		return self.get_rg_table_child(e_tage_name, index)
-
-	def get_terms_and_conditions(self):
-		e_parent = self.get_terms_table()
-		self.assertIsNotNone(e_parent)
-		e_tage_name = 'a'
-		element, _ = self.get_element_child_by_tag_name(e_tage_name, -1, e_parent)
+		element,_ = self.get_element_child_by_tag_name(e_tage_name, 0, e_parent)
+		return element
+    
+	def get_login_click(self):
+		e_parent = self.get_login_sigi()
+		self.asserIsNotNone(e_parent)
+		e_tage_name = 'p'
+		element,_ = self.get_element_child_by_tag_name(e_tage_name, 0, e_parent)
 		return element
 
-	def get_newsletter_table(self):
-		index = -2
-		e_tage_name = 'table'
-		return self.get_rg_table_child(e_tage_name, index)
-
-	def get_learn_more(self):
-		e_parent = self.get_newsletter_table()
-		self.assertIsNotNone(e_parent)
+	def get_login_clickhere(self):
+		e_parent = self.get_login_click()
+		self.asserIsNotNone(e_parent)
 		e_tage_name = 'a'
-		element, _ = self.get_element_child_by_tag_name(e_tage_name, -1, e_parent)
+		element,_ = self.get_element_child_by_tag_name()
 		return element
+   
+	def get_login_facebook(self):
+		e_class_name = 'fa fa-facebook login-facebook'
+		return self.find_elemnt_by_class_name(e_class_name)
+
+	def get_login_facebook(self):
+		e_class_name = 'fa fa-google-plus login-google'
+		return self.find_elemnt_by_class_name(e_class_name)
+
+  
+     

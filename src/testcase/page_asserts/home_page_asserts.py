@@ -1,6 +1,7 @@
 from testcase.page_object import home_page as hp
 
 
+
 class HomeAsserts(hp.Home):
 	def __init__(self, driver=''):
 		super(HomeAsserts, self).__init__()
@@ -36,7 +37,7 @@ class HomeAsserts(hp.Home):
 		self.assertIsNotNone(element)
 		self.scroll_to_element(element)
 		self.assertIn(key_word, self.driver.current_url)
-
+    
 	
 
 	
