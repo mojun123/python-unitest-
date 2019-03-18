@@ -2,7 +2,7 @@ import os
 import sys
 
 sys.path.append(os.path.dirname(os.getcwd()))
-from page.assert_attrs import AssertAttrs
+from src.page.assert_attrs import AssertAttrs
 
 class ExcuteJS(AssertAttrs):
 	"""docstring for ExcuteJS"""
@@ -69,7 +69,7 @@ class ChromeDriver(DriverKeys):
 		self.driver = driver
 	
 	def save_screenshot(self, name):
-		from utils import file_handle as fhd
+		from src.utils import file_handle as fhd
 		fhd.mkdir_if_not_existed(name)
 		return self.driver.save_screenshot(name)
 		
@@ -84,7 +84,7 @@ class ChromeDriver(DriverKeys):
 			pickle.dump(self.driver.get_cookies(), filehandler)
 
 	def load_cookie_from_file(self, path):
-		from utils import file_handle as fhd
+		from src.utils import file_handle as fhd
 		cookies = fhd.file_content_to_py_object(path)
 		self.assertIsNotNone(cookies)
 		self.assertIs(type(cookies), list)
@@ -101,49 +101,49 @@ class ChromeDriver(DriverKeys):
 		# print(1111111111111)
 		user_agents_list = []
 		if browser_type == 'android-browser':
-			from user_agents import android_browser_user_agent as _ua
+			from src.user_agents import android_browser_user_agent as _ua
 			user_agents_list = _ua.android_browser_user_agent
 		elif browser_type == 'internet-explorer':
-			from user_agents import internet_explorer_user_agent as _ua
+			from src.user_agents import internet_explorer_user_agent as _ua
 			user_agents_list = _ua.internet_explorer_user_agent
 		elif browser_type == 'firefox':
-			from user_agents import firefox_user_agent as _ua
+			from src.user_agents import firefox_user_agent as _ua
 			user_agents_list = _ua.firefox_user_agent
 		elif browser_type == 'facebook-app':
-			from user_agents import facebook_app_user_agent as _ua
+			from src.user_agents import facebook_app_user_agent as _ua
 			user_agents_list = _ua.facebook_app_user_agent
 		elif browser_type == 'opera-mini':
-			from user_agents import opera_mini_user_agent as _ua
+			from src.user_agents import opera_mini_user_agent as _ua
 			user_agents_list = _ua.opera_mini_user_agent
 		elif browser_type == 'opera':
-			from user_agents import opera_user_agent as _ua
+			from src.user_agents import opera_user_agent as _ua
 			user_agents_list = _ua.opera_user_agent
 		elif browser_type == 'safari':
-			from user_agents import safari_user_agent as _ua
+			from src.user_agents import safari_user_agent as _ua
 			user_agents_list = _ua.safari_user_agent
 		elif browser_type == 'chrome':
-			from user_agents import chrome_user_agent as _ua
+			from src.user_agents import chrome_user_agent as _ua
 			user_agents_list = _ua.chrome_user_agent
 		elif browser_type == 'uc-browser':
-			from user_agents import uc_browser_user_agent as _ua
+			from src.user_agents import uc_browser_user_agent as _ua
 			user_agents_list = _ua.uc_browser_user_agent
 		elif browser_type == 'ios':
-			from user_agents import ios_user_agent as _ua
+			from src.user_agents import ios_user_agent as _ua
 			user_agents_list = _ua.ios_user_agent
 		elif browser_type == 'macos':
-			from user_agents import macos_user_agent as _ua
+			from src.user_agents import macos_user_agent as _ua
 			user_agents_list = _ua.macos_user_agent
 		elif browser_type == 'windows':
-			from user_agents import windows_user_agent as _ua
+			from src.user_agents import windows_user_agent as _ua
 			user_agents_list = _ua.windows_user_agent
 		elif browser_type == 'android':
-			from user_agents import android_user_agent as _ua
+			from src.user_agents import android_user_agent as _ua
 			user_agents_list = _ua.android_user_agent
 		elif browser_type == 'iphone':
-			from user_agents import iphone_user_agent as _ua
+			from src.user_agents import iphone_user_agent as _ua
 			user_agents_list = _ua.iphone_user_agent
 		elif browser_type == 'ipad':
-			from user_agents import ipad_user_agent as _ua
+			from src.user_agents import ipad_user_agent as _ua
 			user_agents_list = _ua.ipad_user_agent
 		else:
 			from user_agents import android_browser_user_agent

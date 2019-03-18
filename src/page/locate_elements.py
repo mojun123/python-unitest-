@@ -10,7 +10,7 @@ import sys
 
 sys.path.append(os.path.dirname(os.getcwd()))
 
-from page.browser_logs import BrowserLogs
+from src.page.browser_logs import BrowserLogs
 
 
 

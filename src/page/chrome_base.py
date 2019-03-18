@@ -1,3 +1,4 @@
+
 from selenium import webdriver
 
 
@@ -7,8 +8,8 @@ import time
 BASEDIR = os.path.dirname(os.getcwd())
 sys.path.append(BASEDIR)
 
-from utils import driver_env as denv
-from utils import file_handle as fhd
+from src.utils import driver_env as denv
+from src.utils import file_handle as fhd
 
 class ChromeBase(object):
 	def __init__(self):
@@ -94,7 +95,7 @@ class ChromeBase(object):
 		self.set_log_save_fname(log_name)
 		self.driver = webdriver.Chrome(
 			self.chrome_driver, 
-			chrome_options=self.chrome_options, 
+			options=self.chrome_options,
 			desired_capabilities=self.capabilities,
 			service_args=[self.log_level, self.log_path]
 		)
@@ -271,7 +272,7 @@ class ChromeBase(object):
 		# 	self.set_server_log_level(self.server_log)
 
 	def get_log_conf(self, log_config_file):
-		from utils.read_confs import ReadConf
+		from src.utils.read_confs import ReadConf
 		
 		config_parser = ReadConf(log_config_file)
 

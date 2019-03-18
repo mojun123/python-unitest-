@@ -1,4 +1,4 @@
-from page.chrome_driver import ChromeDriver as cdriver
+from src.page.chrome_driver import ChromeDriver as cdriver
 
 class Home(cdriver):
 	def __init__(self, driver=''):

@@ -1,4 +1,4 @@
-from page.chrome_driver import ChromeDriver as cdriver
+from src.page.chrome_driver import ChromeDriver as cdriver
  
 class Login(cdriver):
 	def _init_(self,driver=""):
@@ -150,5 +150,3 @@ class Login(cdriver):
 		e_class_name = 'fa fa-google-plus login-google'
 		return self.find_elemnt_by_class_name(e_class_name)
 
-  
-     

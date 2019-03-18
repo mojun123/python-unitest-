@@ -10,7 +10,7 @@ from selenium.webdriver.remote.webdriver import WebElement
 
 sys.path.append(os.path.dirname(os.getcwd()))
 
-from page.locate_elements import LocateElements
+from src.page.locate_elements import LocateElements
 
 class LocateElementsByJS(LocateElements):
 	"""docstring for LocateElementsByJS"""

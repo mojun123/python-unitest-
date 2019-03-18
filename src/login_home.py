@@ -42,7 +42,7 @@ class LoginTestsuits(unittest.TestCase):
 		cls.login_page_obj.headless = False
 		cls.login_page_obj.start_maximized = True 
 		cls.login_page_obj.set_chrome_options()
-		proxy_json_file = os.path.join(BASEDIR,'conf', 'proxy.json')
+		proxy_json_file = os.path.join(DASEDIR,'conf', 'proxy.json')
 		# proxy = chd.random_proxy_from_file(proxy_json_file)
 		# cls.login_page_obj.add_proxy(proxy)
 		#cls.login_page_obj.add_proxy('socks5://192.168.10.20:1081')

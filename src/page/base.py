@@ -9,8 +9,8 @@ import os
 import sys
 import time
 sys.path.append(os.path.dirname(os.getcwd()))
-from utils.file_handle import *
-from utils._regex import *
+from src.utils.file_handle import *
+from src.utils._regex import *
 
 
 class BasePage(object):
@@ -303,6 +303,9 @@ class BasePage(object):
 
 	def refresh(self):
 		return self.driver.refresh()
+
+
+
 
 
 	# def get_response_status(self):

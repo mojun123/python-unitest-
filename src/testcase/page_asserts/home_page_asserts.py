@@ -1,4 +1,4 @@
-from testcase.page_object import home_page as hp
+from src.testcase.page_object import home_page as hp
 
 
 
@@ -36,7 +36,7 @@ class HomeAsserts(hp.Home):
 	def check_url_after_click_href(self, key_word, element):
 		self.assertIsNotNone(element)
 		self.scroll_to_element(element)
-		self.assertIn(key_word, self.driver.current_url)
+		self.assertIn(key_word,self.driver.current_url)
     
 	
 

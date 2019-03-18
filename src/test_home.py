@@ -247,7 +247,11 @@ def main():
 	from src.utils import report_to_wechat as rtw
 	retry_number = 0
 	result = rtw.run_suites(file_name, test_suits.suits, retry_number)
-
+	from src.utils.sendemail import send_email
+	from src.utils.sendemail import new_file
+	test_report = r'C:\Users\F993\Documents\Tencent Files\1696384748\FileRecv\genkifitness_pc_selenium_testing\genkifitness_pc_selenium_testing\result'
+	test = new_file(test_report)
+	send_email(test)
 
 if __name__ == "__main__":
 	main()

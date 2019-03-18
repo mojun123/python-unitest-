@@ -1,6 +1,4 @@
 
-
-
 def mkdir_if_not_existed(file_name):
 	import os
 	path = os.path.dirname(file_name)

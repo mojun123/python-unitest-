@@ -1,9 +1,9 @@
-from testcase.page_object import login_page as jp
+from src.testcase.page_object import login_page as jp
 
 
 class LoginAsserts(jp.Login):
 	def __init__(self, driver=''):
-		super(HomeAsserts, self).__init__()
+		super(LoginAsserts, self).__init__()
 		if driver:
 			self.driver = driver
 

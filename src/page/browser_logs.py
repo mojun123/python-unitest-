@@ -2,7 +2,7 @@ import os
 import sys
 import time
 sys.path.append(os.path.dirname(os.getcwd()))
-from page.chrome_base import ChromeBase
+from src.page.chrome_base import ChromeBase
 
 class BrowserLogs(ChromeBase):
 	def __init__(self):

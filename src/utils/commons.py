@@ -45,7 +45,7 @@ def importModule(module_path, variable_name, module_name=''):
 def get_login_infos(base_dir):
 	import os
 	file = os.path.join(base_dir, 'conf', 'login.conf')
-	from utils.read_confs import ReadConf
+	from src.utils.read_confs import ReadConf
 	config_parser = ReadConf(file)
 
 	email = config_parser.get_value_by_key('email')
@@ -53,7 +53,7 @@ def get_login_infos(base_dir):
 	return email, pwd
 
 def random_proxy_from_file( proxy_json_file):
-	from proxy.requestsproxy import RandomProxy
+	from src.proxy.requestsproxy import RandomProxy
 
 	_obj = RandomProxy(proxy_json_file)
 	_default_proxy = 'socks5://192.168.10.20:1081'
