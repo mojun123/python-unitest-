@@ -7,29 +7,9 @@
       <change afterPath="$PROJECT_DIR$/Automation-framework/test1.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Automation-framework/test2.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Automation-framework/test3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/login_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/testcase/page_object/oa_login_in.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/sendemail.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Automation-framework" beforeDir="false" afterPath="$PROJECT_DIR$/Automation-framework" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Automation-framework/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/login_home.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/login_home.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/browser_logs.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/browser_logs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/chrome_base.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/chrome_base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/chrome_driver.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/chrome_driver.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/locate_element_by_js.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/locate_element_by_js.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/locate_elements.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/locate_elements.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test_home.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/test_home.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/testcase/page_asserts/home_page_asserts.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/testcase/page_asserts/home_page_asserts.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/testcase/page_asserts/login_page_asserts.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/testcase/page_asserts/login_page_asserts.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/testcase/page_object/home_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/testcase/page_object/home_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/testcase/page_object/login_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/testcase/page_object/login_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/case_suits.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/case_suits.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/commons.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/commons.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/file_handle.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/file_handle.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/report_to_wechat.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/report_to_wechat.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,8 +27,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/login_home.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="260">
-                  <caret line="173" column="10" selection-start-line="173" selection-start-column="10" selection-end-line="173" selection-end-column="10" />
+                <state relative-caret-position="314">
+                  <caret line="173" column="10" lean-forward="true" selection-start-line="173" selection-start-column="10" selection-end-line="173" selection-end-column="10" />
                   <folding>
                     <element signature="e#1#16#0" expanded="true" />
                   </folding>
@@ -221,7 +201,7 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/page/locate_elements.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-12426">
+                <state relative-caret-position="-12597">
                   <folding>
                     <element signature="e#0#30#0" expanded="true" />
                   </folding>
@@ -295,10 +275,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="-21" />
-    <option name="y" value="27" />
-    <option name="width" value="1386" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="95" />
+    <option name="y" value="43" />
+    <option name="width" value="1359" />
     <option name="height" value="788" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -315,11 +295,6 @@
             <path>
               <item name="genkifitness_pc_selenium_testing" type="b2602c69:ProjectViewProjectNode" />
               <item name="genkifitness_pc_selenium_testing" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="genkifitness_pc_selenium_testing" type="b2602c69:ProjectViewProjectNode" />
-              <item name="genkifitness_pc_selenium_testing" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -506,7 +481,7 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-21" y="27" width="1386" height="788" extended-state="1" />
+    <frame x="-70" y="42" width="1386" height="788" extended-state="0" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49839228" visible="true" weight="0.20623146" />
       <window_info id="Structure" order="1" sideWeight="0.5016077" side_tool="true" weight="0.20623146" />
@@ -519,7 +494,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" auto_hide="true" id="Terminal" order="8" sideWeight="0.6721992" visible="true" weight="0.50764525" />
+      <window_info active="true" anchor="bottom" auto_hide="true" id="Terminal" order="8" sideWeight="0.6721992" visible="true" weight="0.24770643" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.32780084" side_tool="true" weight="0.10275229" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -767,7 +742,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/page/locate_elements.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-12426">
+        <state relative-caret-position="-12597">
           <folding>
             <element signature="e#0#30#0" expanded="true" />
           </folding>
@@ -796,8 +771,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/login_home.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="173" column="10" selection-start-line="173" selection-start-column="10" selection-end-line="173" selection-end-column="10" />
+        <state relative-caret-position="314">
+          <caret line="173" column="10" lean-forward="true" selection-start-line="173" selection-start-column="10" selection-end-line="173" selection-end-column="10" />
           <folding>
             <element signature="e#1#16#0" expanded="true" />
           </folding>
